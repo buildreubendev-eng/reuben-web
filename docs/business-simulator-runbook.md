@@ -269,8 +269,8 @@ When the public demo is not working:
 
 ## Ownership Notes
 
-- Website/frontend repo: `benn4105/reuben-web`.
-- Backend/Reux repo: `benn4105/Reux`.
+- Website/frontend repo: `buildreubendev-eng/reuben-web`.
+- Backend/Reux repo: `buildreubendev-eng/Reux`.
 - Public demo frontend deploys from Vercel.
 - Public demo backend deploys from Railway.
 - This repo owns the visitor experience, frontend adapter, public docs, smoke script, and sales flow.

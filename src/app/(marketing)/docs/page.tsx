@@ -113,7 +113,7 @@ const ONBOARDING_STEPS = [
   {
     step: 1,
     title: "Clone the repository",
-    command: "git clone https://github.com/benn4105/Reux.git && cd Reux",
+    command: "git clone https://github.com/buildreubendev-eng/Reux.git && cd Reux",
     description: "The Reux source repository is public. Clone it and enter the project directory.",
   },
   {
@@ -253,7 +253,7 @@ export default function DocsPage() {
             </div>
 
             <div className="mt-6 flex flex-col sm:flex-row gap-4">
-              <AnimatedButton href="https://github.com/benn4105/Reux" variant="secondary" external>
+              <AnimatedButton href="https://github.com/buildreubendev-eng/Reux" variant="secondary" external>
                 Open GitHub Repository
               </AnimatedButton>
               <AnimatedButton href="/projects/reux/roadmap" variant="secondary">
@@ -306,7 +306,7 @@ export default function DocsPage() {
             </div>
 
             <div className="mt-6 flex flex-col sm:flex-row gap-4">
-              <AnimatedButton href="https://github.com/benn4105/Reux" variant="secondary" external>
+              <AnimatedButton href="https://github.com/buildreubendev-eng/Reux" variant="secondary" external>
                 GitHub Repository
               </AnimatedButton>
               <AnimatedButton href="/projects/reux/roadmap" variant="secondary">
@@ -511,7 +511,7 @@ export default function DocsPage() {
                 {
                   title: "GitHub Repository",
                   description: "Browse source code, examples, and open issues.",
-                  href: "https://github.com/benn4105/Reux",
+                  href: "https://github.com/buildreubendev-eng/Reux",
                   color: "border-white/10 hover:border-white/20",
                   icon: "05",
                   external: true,

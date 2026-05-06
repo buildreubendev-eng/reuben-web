@@ -57,7 +57,7 @@ Check these before each deployment:
 
 The `/docs` page provides a structured onboarding path for technical users who want to try Reux locally:
 
-1. Clone the [Reux repo](https://github.com/benn4105/Reux)
+1. Clone the [Reux repo](https://github.com/buildreubendev-eng/Reux)
 2. `npm install`
 3. `npm run onboarding:smoke` — proves the compiler, CLI, and simulation runner work locally (no database needed)
 4. Install the VS Code extension from `editors/vscode/`
@@ -188,7 +188,7 @@ npm run check:production
 
 ## Railway Deployment
 
-This repo includes `railway.json`. Create a Railway service from `benn4105/reuben-web` and set the `NEXT_PUBLIC_REUX_DEMO_URL` variable.
+This repo includes `railway.json`. Create a Railway service from `buildreubendev-eng/reuben-web` and set the `NEXT_PUBLIC_REUX_DEMO_URL` variable.
 
 ## Architecture Notes
 

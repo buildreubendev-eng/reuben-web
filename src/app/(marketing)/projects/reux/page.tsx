@@ -189,7 +189,7 @@ export default function ReuxPage() {
             <AnimatedButton href="/docs" variant="secondary">
               Developer Preview
             </AnimatedButton>
-            <AnimatedButton href="https://github.com/benn4105/Reux" variant="secondary" external>
+            <AnimatedButton href="https://github.com/buildreubendev-eng/Reux" variant="secondary" external>
               GitHub
             </AnimatedButton>
           </div>
@@ -619,7 +619,7 @@ export default function ReuxPage() {
                 title: "Clinic Operations",
                 status: "Source Pilot",
                 description: "Models appointment workflows, visit status rules, clinician task load, and care-task events. For example, Reux can enforce a visit moving from scheduled to checked-in before completion.",
-                href: "https://github.com/benn4105/Reux/blob/main/examples/clinic_reux.dl",
+                href: "https://github.com/buildreubendev-eng/Reux/blob/main/examples/clinic_reux.dl",
                 action: "View Source",
                 external: true,
               },

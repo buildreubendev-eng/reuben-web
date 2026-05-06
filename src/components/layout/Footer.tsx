@@ -76,7 +76,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="https://github.com/benn4105/Reux" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#00F0FF] transition-colors text-sm flex items-center gap-1.5">
+                <a href="https://github.com/buildreubendev-eng/Reux" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#00F0FF] transition-colors text-sm flex items-center gap-1.5">
                   <GithubIcon size={14} />
                   GitHub
                 </a>
