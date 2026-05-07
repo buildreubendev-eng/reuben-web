@@ -3,6 +3,30 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
 const POSTS: Record<string, { title: string; date: string; category: string; content: React.ReactNode }> = {
+  "plos-mvp-foundation-live": {
+    title: "PLOS MVP Foundation Is Live",
+    date: "2026-05-07",
+    category: "Changelog",
+    content: (
+      <>
+        <p>
+          PLOS is no longer just a long-range consumer simulation idea. The first MVP foundation is live as a standalone Next.js app for Reuben&apos;s Personal Life Operating System.
+        </p>
+        <p>
+          The current product slice focuses on personal life admin: bills, renewals, appointments, travel confirmations, receipts, important documents, deadlines, subscriptions, and messages that need a reply. The app turns those inputs into a prioritized dashboard, AI Inbox, generated tasks, weekly briefing, documents, and a Life Admin Score.
+        </p>
+        <p>
+          The backend foundation is already in place with typed routes for items, tasks, dashboard summaries, recommendations, approvals, raw ingestion, documents, settings, integrations, audit history, and local reset. Sensitive actions such as sending messages, making payments, or canceling subscriptions are routed through approval gates.
+        </p>
+        <p>
+          Real Gmail, Calendar, bank, and health integrations are intentionally not connected yet. The MVP uses realistic mock data and abstraction layers so those permission-based integrations can be added later without rebuilding the product core.
+        </p>
+        <p>
+          LifePilot was the working codename. The user-facing product is PLOS.
+        </p>
+      </>
+    ),
+  },
   "reux-prototype-complete": {
     title: "Reux Public Prototype Complete",
     date: "2026-05-01",
@@ -45,14 +69,20 @@ export function generateStaticParams() {
   return Object.keys(POSTS).map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = POSTS[params.slug as keyof typeof POSTS];
+interface BlogPostPageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  const post = POSTS[slug as keyof typeof POSTS];
   if (!post) return { title: "Post Not Found" };
   return { title: `${post.title} | Reuben Blog` };
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = POSTS[params.slug as keyof typeof POSTS];
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  const post = POSTS[slug as keyof typeof POSTS];
 
   if (!post) {
     notFound();

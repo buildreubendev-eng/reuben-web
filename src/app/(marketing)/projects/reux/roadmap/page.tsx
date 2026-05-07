@@ -356,8 +356,8 @@ export default function RoadmapPage() {
           </div>
           <div className="relative">
             <div className="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-[#00F0FF] shadow-[0_0_10px_rgba(0,240,255,0.8)]" />
-            <h3 className="text-lg font-bold text-white mb-1">Business Simulator MVP</h3>
-            <p className="text-gray-400 text-sm">Launched the flagship interactive demo proving Reux&apos;s simulation and forecasting capabilities with saved runs and sharing.</p>
+            <h3 className="text-lg font-bold text-white mb-1">Business Simulator Wedge</h3>
+            <p className="text-gray-400 text-sm">Launched the flagship sellable product wedge proving Reux&apos;s simulation and forecasting capabilities with guided templates, recommendations, saved runs, and sharing.</p>
           </div>
           <div className="relative">
             <div className="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-white/30" />

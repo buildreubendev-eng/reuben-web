@@ -7,6 +7,13 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "plos-mvp-foundation-live",
+    title: "PLOS MVP Foundation Is Live",
+    date: "2026-05-07",
+    excerpt: "PLOS has moved from future product idea to a working Personal Life Operating System MVP with life-admin APIs, recommendations, approvals, ingest, documents, and Prisma readiness.",
+    category: "Changelog",
+  },
+  {
     slug: "reux-prototype-complete",
     title: "Reux Public Prototype Complete",
     date: "2026-05-01",

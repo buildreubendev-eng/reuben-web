@@ -214,7 +214,7 @@ export default function ReuxPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="p-6 md:p-10 lg:p-12">
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-300">
-                Sellable prototype
+                Sellable product wedge
               </div>
               <h2 className="mb-5 text-3xl font-black tracking-tight text-white md:text-5xl">
                 Business Simulator

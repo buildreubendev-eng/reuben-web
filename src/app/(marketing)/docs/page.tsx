@@ -22,6 +22,8 @@ import {
   Cloud,
   CheckCircle2,
   CircleDashed,
+  Inbox,
+  ShieldCheck,
 } from "lucide-react";
 import IdeMockup from "@/components/ui/IdeMockup";
 import { copyToClipboard } from "@/lib/simulation/share";
@@ -155,6 +157,14 @@ const NOT_YET_PACKAGED = [
   { label: "Public npm package", icon: Package },
   { label: "One-click VS Code Marketplace install", icon: MonitorSmartphone },
   { label: "Hosted cloud execution", icon: Cloud },
+];
+
+const PLOS_API_SURFACES = [
+  "Items, item detail, status updates, and item actions",
+  "Generated tasks, manual tasks, prioritization, and Life Admin Score",
+  "Recommendations, sensitive approvals, saved documents, and audit events",
+  "Raw provider-message ingestion and ingestion run history",
+  "Privacy settings, integration states, reset, and Prisma SQLite schema",
 ];
 
 export default function DocsPage() {
@@ -402,6 +412,38 @@ export default function DocsPage() {
             </div>
           </section>
 
+          {/* PLOS MVP Handoff */}
+          <section className="mb-16" id="plos-mvp">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 rounded-lg bg-emerald-500/10">
+                <Inbox className="text-emerald-400" size={24} />
+              </div>
+              <h2 className="text-2xl font-bold">PLOS MVP Backend Surface</h2>
+            </div>
+
+            <p className="text-gray-400 mb-6 leading-relaxed">
+              PLOS is the current Personal Life Operating System MVP. The app uses mock data today, but the backend contracts are already structured for a real frontend implementation and future permission-based integrations.
+            </p>
+
+            <div className="grid grid-cols-1 gap-3 mb-8">
+              {PLOS_API_SURFACES.map((surface) => (
+                <div key={surface} className="flex gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                  <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
+                  <p className="text-sm leading-relaxed text-gray-300">{surface}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/[0.04] px-5 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <p className="text-sm text-emerald-400/80 leading-relaxed">
+                The frontend work should connect to these contracts instead of re-inventing state in the UI layer.
+              </p>
+              <AnimatedButton href="/projects/plos" variant="secondary">
+                View PLOS
+              </AnimatedButton>
+            </div>
+          </section>
+
           {/* Syntax Examples */}
           <section className="mb-16" id="examples">
             <div className="flex items-center gap-3 mb-6">
@@ -502,18 +544,25 @@ export default function DocsPage() {
                   icon: "03",
                 },
                 {
+                  title: "Review PLOS MVP",
+                  description: "See the Personal Life Operating System backend surface, privacy model, and next milestone.",
+                  href: "/projects/plos",
+                  color: "border-emerald-500/20 hover:border-emerald-500/40",
+                  icon: "04",
+                },
+                {
                   title: "View Roadmap",
                   description: "See what is available now, in beta, next, and future.",
                   href: "/projects/reux/roadmap",
                   color: "border-amber-500/20 hover:border-amber-500/40",
-                  icon: "04",
+                  icon: "05",
                 },
                 {
                   title: "GitHub Repository",
                   description: "Browse source code, examples, and open issues.",
                   href: "https://github.com/buildreubendev-eng/Reux",
                   color: "border-white/10 hover:border-white/20",
-                  icon: "05",
+                  icon: "06",
                   external: true,
                 },
                 {
@@ -521,7 +570,7 @@ export default function DocsPage() {
                   description: "Features, use cases, live pilots, and the full product story.",
                   href: "/projects/reux",
                   color: "border-white/10 hover:border-white/20",
-                  icon: "06",
+                  icon: "07",
                 },
               ].map((card) => (
                 <a

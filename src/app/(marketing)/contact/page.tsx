@@ -30,6 +30,13 @@ function getInitialContactContext() {
     };
   }
 
+  if (requestedTopic === "plos") {
+    return {
+      topic: "plos",
+      message: "I want to talk about PLOS, the Personal Life Operating System MVP, and how the life-admin dashboard, approvals, ingest, or frontend implementation should evolve.",
+    };
+  }
+
   if (source === "simulator-result") {
     return { topic: "enterprise", message: "" };
   }
@@ -128,7 +135,7 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="text-xl text-gray-400">
-            Have questions about Reux, the Business Simulator, PLOS, or enterprise simulation capabilities? We would love to hear from you.
+            Have questions about Reux, the Business Simulator, PLOS, or enterprise simulation capabilities? Send the thing. We will route it to the right track.
           </p>
         </motion.div>
 
@@ -144,11 +151,11 @@ export default function ContactPage() {
               copy: "One spreadsheet decision with baseline assumptions and two or three scenarios.",
             },
             {
-              title: "What you get back",
-              copy: "A focused simulator flow with forecast metrics, recommendation logic, and a Reux transparency layer.",
+              title: "PLOS starting point",
+              copy: "One messy life-admin workflow: renewals, bills, documents, inbox triage, approvals, or weekly briefings.",
             },
             {
-              title: "Best first use",
+              title: "Business Simulator fit",
               copy: "Staffing, pricing, capacity, overtime, quality risk, or process-change decisions.",
             },
           ].map((item) => (
@@ -212,7 +219,7 @@ export default function ContactPage() {
                   <option value="business-simulator">Business Simulator Pilot</option>
                   <option value="reux">Reux / Developer Preview</option>
                   <option value="enterprise">Enterprise Simulation</option>
-                  <option value="plos">PLOS Early Access</option>
+                  <option value="plos">PLOS MVP</option>
                   <option value="other">Other</option>
                 </select>
               </div>

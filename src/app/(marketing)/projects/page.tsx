@@ -37,7 +37,7 @@ const prototypeProjects = [
   },
 ];
 
-const plannedProjects = [
+const nextProjects = [
   {
     title: "PLOS Simulation Layer",
     description: "The next PLOS phase connects the life-admin MVP to deeper personal forecasting models for finances, habits, goals, career choices, and time.",
@@ -117,14 +117,14 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        {/* Planned */}
+        {/* Next */}
         <section>
           <div className="flex items-center gap-3 mb-6">
             <StatusBadge status="Next" color="gray" />
             <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Next product layer</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {plannedProjects.map((project, index) => (
+            {nextProjects.map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 20 }}

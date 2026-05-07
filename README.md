@@ -1,6 +1,6 @@
 # Reuben Web - Frontend
 
-The public website for the Reuben ecosystem: homepage, project pages, Business Simulator, developer preview, and marketing pages.
+The public website for the Reuben ecosystem: homepage, project pages, Business Simulator, PLOS positioning, developer preview, and marketing pages.
 
 Built with **Next.js 16**, React, Tailwind CSS, and shadcn/ui.
 
@@ -44,12 +44,12 @@ Check these before each deployment:
 | `/simulator/new` | Scenario builder | Input validation mirrors backend limits |
 | `/simulator/[id]` | Simulation results | Charts, metrics, recommendation |
 | `/simulator/[id]/compare` | Scenario comparison | Side-by-side charts and table |
-| `/projects` | All projects | Grouped by status: Live / Prototype / Planned |
+| `/projects` | All projects | Grouped by status: Live / Prototype / MVP / Next |
 | `/projects/reux` | Reux product page | Features, pilots, roadmap summary |
 | `/projects/reux/roadmap` | Full roadmap | Available Now / Beta / Next / Future |
 | `/projects/reux/demo` | Live Reux demos | Requires `NEXT_PUBLIC_REUX_DEMO_URL` |
 | `/operator/pilot-requests` | Founder Pilot operator view | Requires the Railway demo admin token |
-| `/projects/plos` | PLOS product page | Planned product; no live features |
+| `/projects/plos` | PLOS product page | MVP foundation, backend surface, privacy model, and next milestone |
 | `/docs` | Developer preview | Onboarding steps, syntax examples, editor support, run-from-source |
 | `/about` | About Reuben | Vision, ecosystem diagram, team |
 
@@ -64,6 +64,17 @@ The `/docs` page provides a structured onboarding path for technical users who w
 5. Run a simulation example
 
 The public npm package and VS Code Marketplace listing are not yet available. See the [roadmap](/projects/reux/roadmap) for current status.
+
+## PLOS Status
+
+PLOS is now treated as an MVP foundation, not a placeholder future product. The product repo currently includes:
+
+- Life-admin dashboard, AI Inbox simulation, generated tasks, weekly briefing, documents, approvals, integrations, ingest, audit, and settings surfaces.
+- Backend routes for items, tasks, recommendations, dashboard, briefing, documents, settings, integrations, audit, approvals, ingestion, and reset.
+- Privacy-first behavior: no real Gmail, Calendar, bank, or health integrations yet, and sensitive actions require explicit approval.
+- Local JSON persistence for the MVP plus a Prisma SQLite schema for the next repository implementation milestone.
+
+The public website should describe LifePilot only as the old working codename. The user-facing product name is PLOS.
 
 ## Simulator API Limits
 
