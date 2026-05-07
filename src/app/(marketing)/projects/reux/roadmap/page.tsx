@@ -14,6 +14,7 @@ export default function RoadmapPage() {
     "Runtime support for PostgreSQL queries, transactions, and outbox processing.",
     "CLI tooling for formatting, checking, generation, and migrations.",
     "Business Simulator with scenario comparison, forecasts, and saved runs.",
+    "PLOS standalone MVP with life-admin APIs, mock ingestion, approvals, documents, audit events, settings, and Prisma SQLite schema.",
     "VS Code syntax highlighting, diagnostics, formatting, completions, and hover text.",
     "Simulation declarations with assumptions, scenarios, objectives, and time-series forecasting.",
     "Public API rate limiting, request counters, and session isolation for hosted demos.",
@@ -25,6 +26,7 @@ export default function RoadmapPage() {
     "PostgreSQL-backed saved simulation runs for result pages and sharing",
     "Responsive, accessible demo UI with mobile layout polish",
     "Developer onboarding path: clone -> install -> smoke test -> VS Code -> run examples",
+    "PLOS API contracts ready for the Gemini-designed frontend implementation",
   ];
 
   const nextMilestones = [
@@ -49,6 +51,10 @@ export default function RoadmapPage() {
       description: "Expand Reux syntax with deeper assumption modeling and forecasting capabilities.",
     },
     {
+      title: "PLOS Persistence & UI Integration",
+      description: "Move PLOS from JSON-backed MVP state toward Prisma persistence and connect the finished design system to the backend contracts.",
+    },
+    {
       title: "More Product Pilots",
       description: "Build additional domain-specific pilots to stress-test Reux in new environments.",
     }
@@ -65,7 +71,7 @@ export default function RoadmapPage() {
     },
     {
       title: "PLOS & Ecosystem Integration",
-      description: "Connect Reux directly to the Personal Life Operating System (PLOS) and Business Simulator environments."
+      description: "Connect Reux directly to the deeper simulation layers underneath PLOS and Business Simulator."
     },
     {
       title: "Cloud Execution Environment",
@@ -116,7 +122,7 @@ export default function RoadmapPage() {
           Reux <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2]">Roadmap</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          Reux is a data-native programming language for reliable backend systems, workflow-heavy applications, and simulation-driven decision tools. The prototype foundation is now complete: the next phase is public beta polish, business-simulator validation, and stronger developer access.
+          Reux is a data-native programming language for reliable backend systems, workflow-heavy applications, and simulation-driven decision tools. The prototype foundation is complete: the next phase is Business Simulator commercialization, PLOS product integration, and stronger developer access.
         </p>
       </motion.div>
 
@@ -150,7 +156,7 @@ export default function RoadmapPage() {
 
         <div className="col-span-1 md:col-span-2 glass p-6 rounded-2xl border border-white/5 bg-white/5">
           <p className="text-gray-300 text-center text-sm md:text-base">
-            Reux is a backend, data, workflow, and simulation language with generated TypeScript integration. It is not yet positioned as a full-stack language. The 100% prototype metric means all features in the planned prototype scope are working -- not that the product is finished.
+            Reux is a backend, data, workflow, and simulation language with generated TypeScript integration. It is not yet positioned as a full-stack language. The 100% prototype metric means all features in the planned prototype scope are working -- not that every Reuben product is finished.
           </p>
         </div>
       </motion.div>
@@ -333,6 +339,11 @@ export default function RoadmapPage() {
           <h2 className="text-3xl font-bold text-white">Recent Progress</h2>
         </div>
         <div className="space-y-6 border-l-2 border-white/10 pl-6 ml-4">
+          <div className="relative">
+            <div className="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]" />
+            <h3 className="text-lg font-bold text-white mb-1">PLOS MVP Backend</h3>
+            <p className="text-gray-400 text-sm">Added the standalone PLOS foundation: life-admin dashboard API, item actions, recommendations, sensitive approvals, raw ingest, audit history, local persistence, and Prisma SQLite schema.</p>
+          </div>
           <div className="relative">
             <div className="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-orange-400 shadow-[0_0_10px_rgba(251,146,60,0.8)]" />
             <h3 className="text-lg font-bold text-white mb-1">Developer Onboarding Path</h3>

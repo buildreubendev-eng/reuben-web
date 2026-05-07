@@ -64,8 +64,8 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-lg md:text-xl text-gray-400 max-w-2xl mb-12"
           >
-            Reuben builds data-aware tools powered by the <strong className="text-white">Reux</strong> backend engine.
-            Try the live Business Simulator: model operational decisions, compare scenarios, and see which path wins.
+            Reuben builds the <strong className="text-white">Reux</strong> backend engine, the live Business Simulator,
+            and PLOS, our personal life admin operating system MVP.
           </motion.p>
 
           <motion.div 
@@ -104,7 +104,7 @@ export default function Home() {
                 Featured Projects
               </h2>
               <p className="text-gray-400 max-w-md">
-                The Reux prototype language and the live Business Simulator demo that proves it works.
+                The prototype-complete Reux language, the sellable Business Simulator wedge, and the new PLOS MVP.
               </p>
             </div>
             <AnimatedButton href="/projects" variant="secondary" className="mt-8 md:mt-0 hidden md:inline-flex">
@@ -115,22 +115,22 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <ProjectCard
               title="Business Simulator"
-              description="A live demo where you model workforce, cost, and productivity scenarios, then compare forecasted outcomes. Powered by the Reux prototype engine."
-              tags={["Live Demo", "Simulation", "Decision Logic"]}
+              description="The first sellable Reux-powered product: a guided simulator for comparing staffing, pricing, capacity, risk, and process decisions before teams commit budget."
+              tags={["Live Product Wedge", "Scenario Planning", "Reux Powered"]}
               href="/simulator"
               featured={true}
             />
             <ProjectCard
               title="Reux Language"
-              description="A prototype backend language for schemas, transactions, simulations, and decision logic. Data-aware by design, with generated TypeScript integration."
-              tags={["Prototype", "Backend Language", "Simulation"]}
+              description="A prototype-complete data-aware backend language for schemas, typed queries, transactions, events, migrations, simulations, and generated TypeScript integration."
+              tags={["Prototype Complete", "Backend Language", "Simulation"]}
               href="/projects/reux"
               featured={false}
             />
             <ProjectCard
               title="PLOS"
-              description="Personal Life Operating System. A planned platform bringing enterprise-grade scenario modeling to individual finances, habits, and careers."
-              tags={["Planned", "Consumer", "Future"]}
+              description="Personal Life Operating System. A standalone MVP for turning bills, renewals, appointments, documents, travel, and personal replies into prioritized life-admin actions."
+              tags={["MVP", "Life Admin", "Privacy First"]}
               href="/projects/plos"
               featured={false}
             />
@@ -176,10 +176,10 @@ export default function Home() {
               },
               {
                 label: "Map",
-                title: "See the Roadmap",
-                description: "What is live, what is prototype-complete, what is planned, and the long-term direction.",
-                href: "/projects/reux/roadmap",
-                cta: "View Roadmap",
+                title: "Review PLOS",
+                description: "See the personal life admin MVP that turns inbox noise into tasks, recommendations, approvals, and documents.",
+                href: "/projects/plos",
+                cta: "Open PLOS",
                 color: "from-amber-500/20 to-amber-500/5",
                 border: "hover:border-amber-500/30",
               },
@@ -254,7 +254,7 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-8 relative z-20 text-center">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">See It In Action</h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-12">
-            The Business Simulator is live. Model real operational decisions and see how Reux evaluates the outcomes.
+            The Business Simulator is live, Reux is prototype-complete, and PLOS now has a real MVP foundation.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <AnimatedButton href="/simulator" variant="primary">

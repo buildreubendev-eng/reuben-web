@@ -9,11 +9,11 @@ const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://reuben.inc"),
-  title: "Reuben | Engineering the Future of Systems",
-  description: "Reuben builds data-aware tools for backend systems, simulation products, and developer infrastructure. Powered by the Reux prototype engine.",
+  title: "Reuben | Reux, PLOS, and Business Simulator",
+  description: "Reuben builds Reux, the prototype-complete backend engine, Business Simulator, the first sellable scenario-planning wedge, and PLOS, the Personal Life Operating System MVP.",
   openGraph: {
-    title: "Reuben | Engineering the Future of Systems",
-    description: "Reuben builds data-aware tools for backend systems, simulation products, and developer infrastructure. Powered by the Reux prototype engine.",
+    title: "Reuben | Reux, PLOS, and Business Simulator",
+    description: "Reuben builds Reux, Business Simulator, and PLOS: data-aware backend infrastructure, operational scenario planning, and personal life admin.",
     url: "https://reuben.inc",
     siteName: "Reuben",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reuben | Engineering the Future of Systems",
-    description: "Reuben builds data-aware tools for backend systems, simulation products, and developer infrastructure.",
+    title: "Reuben | Reux, PLOS, and Business Simulator",
+    description: "Reuben builds Reux, Business Simulator, and PLOS.",
     images: ["/og-image.jpg"],
   },
 };

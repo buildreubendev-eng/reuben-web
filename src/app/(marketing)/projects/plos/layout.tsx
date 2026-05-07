@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "PLOS | Personal Life Operating System",
-  description: "PLOS is a planned future product that uses Reux to manage personal data, workflows, and life simulations.",
+  description: "PLOS is Reuben's Personal Life Operating System MVP for turning life-admin messages into prioritized actions, recommendations, approvals, documents, and briefings.",
 };
 
 export default function PlosLayout({ children }: { children: React.ReactNode }) {

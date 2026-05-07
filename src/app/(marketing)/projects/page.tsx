@@ -6,8 +6,8 @@ import ProjectCard from "@/components/ui/ProjectCard";
 const liveProjects = [
   {
     title: "Business Simulator",
-    description: "A live public product demo for testing staffing, pricing, capacity, and process changes before committing real money. Reux powers the forecast, recommendation, and transparency layer.",
-    tags: ["Live Demo", "Sellable Prototype", "Decision Logic"],
+    description: "The first sellable Reux wedge: a guided scenario-planning product for comparing operational decisions before teams commit money, staff, time, or risk.",
+    tags: ["Live", "Sellable Wedge", "Decision Logic"],
     href: "/simulator",
     featured: true,
   },
@@ -16,7 +16,7 @@ const liveProjects = [
 const prototypeProjects = [
   {
     title: "Reux Language",
-    description: "A prototype backend language for schemas, transactions, migrations, simulations, and decision logic. Its first public proof point is the Business Simulator.",
+    description: "A prototype-complete backend language for schemas, typed queries, transactions, events, migrations, simulations, generated TypeScript, and public demo execution.",
     tags: ["Prototype Complete", "Backend Language", "Simulation"],
     href: "/projects/reux",
     featured: false,
@@ -28,13 +28,20 @@ const prototypeProjects = [
     href: "/projects/reux/demo",
     featured: false,
   },
+  {
+    title: "PLOS",
+    description: "Personal Life Operating System. A standalone Next.js MVP for AI-powered life admin: dashboard, inbox parsing, tasks, recommendations, approvals, ingest, documents, settings, and a Prisma SQLite schema.",
+    tags: ["MVP", "Life Admin", "Privacy First"],
+    href: "/projects/plos",
+    featured: false,
+  },
 ];
 
 const plannedProjects = [
   {
-    title: "PLOS",
-    description: "Personal Life Operating System. A planned personal simulation platform for finances, habits, goals, and career decisions, with Reux as the simulation layer.",
-    tags: ["Planned", "Personal Simulation", "Future"],
+    title: "PLOS Simulation Layer",
+    description: "The next PLOS phase connects the life-admin MVP to deeper personal forecasting models for finances, habits, goals, career choices, and time.",
+    tags: ["Next Phase", "Personal Simulation", "Reux"],
     href: "/projects/plos",
     featured: false,
   },
@@ -66,7 +73,7 @@ export default function ProjectsPage() {
         >
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">Our Work</h1>
           <p className="text-xl text-gray-400">
-            The Reuben ecosystem spans a prototype backend language, simulation-driven products, and interactive demos. Here is what is live, what is prototype-complete, and what is planned.
+            The Reuben ecosystem spans a prototype-complete backend language, a live sellable simulator wedge, and PLOS, the new personal life admin MVP.
           </p>
         </motion.div>
 
@@ -113,8 +120,8 @@ export default function ProjectsPage() {
         {/* Planned */}
         <section>
           <div className="flex items-center gap-3 mb-6">
-            <StatusBadge status="Planned" color="gray" />
-            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Future products</h2>
+            <StatusBadge status="Next" color="gray" />
+            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Next product layer</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {plannedProjects.map((project, index) => (

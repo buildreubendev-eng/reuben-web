@@ -107,16 +107,24 @@ const roadmapMilestones = [
     title: "Public Prototype Complete",
     status: "100% prototype",
     description:
-      "Reux has a working compiler, CLI, migrations, TypeScript generation, VS Code support, simulations, and hosted commerce/logistics demos.",
-    items: ["Commerce and logistics pilots", "PostgreSQL-backed transactions", "Simulation examples", "Release preflight checks"],
+      "Reux has a working compiler, CLI, migrations, TypeScript generation, VS Code support, simulations, hosted commerce/logistics demos, and public Business Simulator execution.",
+    items: ["Commerce and logistics pilots", "PostgreSQL-backed transactions", "Simulation examples", "Public rate limits and smoke checks"],
   },
   {
     phase: "Beta",
-    title: "Business Simulator MVP",
+    title: "Business Simulator Wedge",
     status: "Completed",
     description:
-      "A serious operator-facing app where users compare cost, productivity, risk, and margin scenarios while Reux powers the backend logic.",
-    items: ["Scenario builder", "Forecast charts", "Recommendation panel", "Reux transparency view"],
+      "The first sellable product surface: operators compare cost, productivity, risk, margin, pricing, staffing, and capacity choices while Reux powers the backend logic.",
+    items: ["Template selection", "Guided run flow", "Saved and shareable results", "Recommendation and watchout fields"],
+  },
+  {
+    phase: "MVP",
+    title: "PLOS Backend Foundation",
+    status: "Completed",
+    description:
+      "PLOS moved from future concept to standalone Next.js MVP: life-admin APIs, mock ingestion, recommendations, approvals, documents, audit, settings, and Prisma SQLite schema.",
+    items: ["AI Inbox simulation", "Life Admin Score", "Sensitive action approvals", "Prisma schema ready"],
   },
   {
     phase: "Beta",
@@ -138,8 +146,8 @@ const roadmapMilestones = [
     title: "Simulation Ecosystem",
     status: "Planned",
     description:
-      "Expand beyond commerce into PLOS (Personal Life Operating System) and enterprise simulation packs so Reux is validated by real decision workflows.",
-    items: ["PLOS models", "Operations packs", "Workforce packs", "Explainable decision reports"],
+      "Deepen the simulation layer under PLOS and Business Simulator so Reux is validated by real personal and enterprise decision workflows.",
+    items: ["PLOS persistence and simulation models", "Operations packs", "Workforce packs", "Explainable decision reports"],
   },
 ];
 
@@ -150,6 +158,7 @@ const liveCapabilities = [
   "Generated TypeScript integration",
   "Simulation declarations and scenario comparisons",
   "Business Simulator with saved runs and sharing",
+  "PLOS MVP backend contracts and Prisma SQLite schema",
   "Hosted commerce and logistics demos with tester guidance",
   "VS Code syntax, diagnostics, formatting, and completions",
   "Public API rate limiting and request counters",
@@ -325,7 +334,7 @@ export default function ReuxPage() {
               The strategy is practical: build the UI with TypeScript and React, then let Reux own the backend logic that needs to be reliable, auditable, and explainable. The <strong className="text-white">Business Simulator</strong> is the current public proof point - a live demo where Reux runs the scenario modeling behind the scenes.
             </p>
             <p className="text-gray-400 text-lg leading-relaxed">
-              In the future, we plan to validate the language against rigorous environments like PLOS (Personal Life Operating System) and enterprise simulation workflows.
+              PLOS is now a standalone MVP foundation, and the Business Simulator is the first sellable wedge. Those products keep Reux honest by forcing the language to support real workflows, not just attractive syntax.
             </p>
           </motion.div>
 
@@ -458,7 +467,7 @@ export default function ReuxPage() {
               {
                 icon: <User className="w-8 h-8 text-[#00F0FF] mb-4" />,
                 title: "Personal Life (PLOS)",
-                description: "Models habit compounding, budget forecasting, and major career decision scenarios over decades.",
+                description: "Starts with life-admin triage, approvals, documents, and recommendations, then grows into personal finance, habit, career, and time simulations.",
               },
             ].map((useCase) => (
               <div key={useCase.title} className="glass-card p-6 rounded-xl border border-white/5 hover:border-white/15 transition-all duration-300">
@@ -489,6 +498,7 @@ export default function ReuxPage() {
               {[
                 { label: "Demo status", value: "Live" },
                 { label: "Prototype completion", value: "100%" },
+                { label: "PLOS status", value: "MVP" },
               ].map((metric) => (
                 <div key={metric.label} className="glass-card rounded-xl p-5">
                   <div className="text-3xl font-black text-white">{metric.value}</div>
@@ -557,7 +567,7 @@ export default function ReuxPage() {
               Reux is an active prototype. It is not yet production-ready for external teams to build their entire company on. 
             </p>
             <p className="text-gray-400 text-lg leading-relaxed">
-              However, the core language is already strong enough to power our Business Simulator, generate reliable backend artifacts, and validate the product thesis internally. Here is what is functioning right now:
+              However, the core language is already strong enough to power the Business Simulator, generate reliable backend artifacts, and shape PLOS backend contracts. Here is what is functioning right now:
             </p>
           </div>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -613,6 +623,14 @@ export default function ReuxPage() {
                 description: "Models state transitions in a fleet network. For example, Reux enforces rules so a shipment can only transition from 'assigned' to 'in_transit'.",
                 href: "/projects/reux/demo?domain=logistics",
                 action: "Open Demo",
+              },
+              {
+                icon: <Activity className="w-8 h-8 text-rose-400" />,
+                title: "PLOS",
+                status: "MVP Foundation",
+                description: "Models personal life-admin actions with typed backend services for inbox items, tasks, recommendations, approvals, ingestion, documents, settings, and audit history.",
+                href: "/projects/plos",
+                action: "View PLOS",
               },
               {
                 icon: <Activity className="w-8 h-8 text-rose-400" />,
