@@ -54,7 +54,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -87,7 +87,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden relative z-10 text-gray-300 hover:text-white"
+          className="lg:hidden relative z-10 text-gray-300 hover:text-white"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
