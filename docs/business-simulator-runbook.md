@@ -9,6 +9,7 @@ For the customer-delivery process after a request arrives, use the [Founder Pilo
 | Surface | URL | Purpose |
 |---|---|---|
 | Reuben website | `https://reuben-web.vercel.app` | Public marketing site and simulator frontend |
+| Ecosystem status | `https://reuben-web.vercel.app/status` | Current Reux, Business Simulator, and PLOS status |
 | Business Simulator | `https://reuben-web.vercel.app/simulator` | Public demo entry point |
 | Scenario builder | `https://reuben-web.vercel.app/simulator/new` | Public template/scenario builder |
 | Founder Pilot operator view | `https://reuben-web.vercel.app/operator/pilot-requests` | Internal lead review view |
@@ -76,6 +77,7 @@ npm run check:production
 Then manually confirm:
 
 - `/simulator` shows `Live Connected`, not `Local Mock`.
+- `/status` clearly shows Reux as prototype complete, Business Simulator as the live sellable wedge, and PLOS as the MVP foundation.
 - `/simulator/new` loads all four templates.
 - A guided demo can run without login, admin token, or private data.
 - The result page shows recommendation, forecast chart, scenario comparison, Reux transparency, and the Founder Pilot request form.
@@ -102,6 +104,7 @@ Then manually confirm:
 `npm run check:production` verifies:
 
 - Website routes render and contain expected demo CTAs.
+- The `/status`, `/projects/plos`, `/blog/plos-mvp-foundation-live`, and `/privacy` pages preserve the current PLOS MVP positioning and privacy posture.
 - The Railway API health endpoint responds.
 - Reux simulation catalog includes executable models.
 - `operations_decision` can run through the Reux API.

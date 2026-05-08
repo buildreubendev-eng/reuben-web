@@ -39,7 +39,8 @@ Check these before each deployment:
 
 | Route | Purpose | Notes |
 |---|---|---|
-| `/` | Homepage | Primary CTA to Simulator |
+| `/` | Homepage | Primary CTA to Simulator and ecosystem status |
+| `/status` | Ecosystem status | Current Reux / Business Simulator / PLOS status, links, milestones, and verification checklist |
 | `/simulator` | Simulator dashboard | Lists saved simulations, shows intro |
 | `/simulator/new` | Scenario builder | Input validation mirrors backend limits |
 | `/simulator/[id]` | Simulation results | Charts, metrics, recommendation |
@@ -124,8 +125,8 @@ npm run check:live-demo
 
 The smoke check verifies:
 
-- The homepage, Reux project page, docs, roadmap, and simulator start path expose the right first-visitor CTAs.
-- `https://reuben-web.vercel.app/simulator` serves the public simulator and Reux model catalog.
+- The homepage, status page, Reux project page, PLOS project page, docs, roadmap, and simulator start path expose the right first-visitor CTAs.
+- `https://reuben-web.vercel.app/simulator` serves the public simulator experience.
 - `https://reuben-web.vercel.app/projects/reux/demo` links visitors into the Business Simulator.
 - The Railway demo service reports healthy executable Reux models.
 - `operations_decision` executes through the Reux API.
