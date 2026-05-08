@@ -13,13 +13,16 @@ const apiUrl = normalizeUrl(args.get("api") ?? process.env.NEXT_PUBLIC_REUX_DEMO
 const checks = [];
 
 async function main() {
-  await checkWebsiteRoute("/", ["Try the Business Simulator", "Explore Reux", "Start Here"]);
+  await checkWebsiteRoute("/", ["Try the Business Simulator", "Reux", "Business Simulator", "PLOS"]);
   await checkWebsiteRoute("/projects/reux", ["Reux Programming Language", "Try the Business Simulator", "Developer Preview", "Roadmap"]);
-  await checkWebsiteRoute("/simulator", ["Business Simulator", "Reux Model Catalog"]);
+  await checkWebsiteRoute("/projects/plos", ["PLOS", "MVP foundation live", "Approval first", "Prisma persistence"]);
+  await checkWebsiteRoute("/simulator", ["Business Simulator", "Powered by Reux prototype"]);
   await checkWebsiteRoute("/simulator/new", ["Build Simulation", "Preparing simulation model", "New Simulation"]);
-  await checkWebsiteRoute("/projects/reux/demo", ["Try Business Simulator", "Open Fullscreen"]);
-  await checkWebsiteRoute("/docs", ["Developer Preview", "VS Code", "Try Business Simulator", "View Roadmap"]);
-  await checkWebsiteRoute("/projects/reux/roadmap", ["Roadmap", "Developer Preview Launch", "Business Simulator MVP"]);
+  await checkWebsiteRoute("/projects/reux/demo", ["Try Business Simulator", "Founder Pilot"]);
+  await checkWebsiteRoute("/docs", ["Developer Preview", "VS Code", "Try Business Simulator", "PLOS MVP Backend Surface"]);
+  await checkWebsiteRoute("/projects/reux/roadmap", ["Roadmap", "Developer Preview Launch", "Business Simulator Wedge", "PLOS MVP Backend"]);
+  await checkWebsiteRoute("/blog/plos-mvp-foundation-live", ["PLOS MVP Foundation Is Live", "LifePilot was the working codename"]);
+  await checkWebsiteRoute("/privacy", ["We do not connect to Gmail", "public PLOS materials describe an MVP foundation"]);
   await checkApiHealth();
   await checkReuxCatalog();
   await checkOperationsRun();
