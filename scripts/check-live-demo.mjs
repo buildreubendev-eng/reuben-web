@@ -14,7 +14,7 @@ const checks = [];
 
 async function main() {
   await checkWebsiteRoute("/", ["Try the Business Simulator", "Reux", "Business Simulator", "PLOS"]);
-  await checkWebsiteRoute("/status", ["Ecosystem status", "Prototype complete", "Live sellable wedge", "MVP foundation"]);
+  await checkWebsiteRoute("/status", ["Ecosystem status", "Live system check", "Prototype complete", "Live sellable wedge", "MVP foundation"]);
   await checkWebsiteRoute("/projects/reux", ["Reux Programming Language", "Try the Business Simulator", "Developer Preview", "Roadmap"]);
   await checkWebsiteRoute("/projects/plos", ["PLOS", "MVP foundation live", "Approval first", "Prisma persistence"]);
   await checkWebsiteRoute("/simulator", ["Business Simulator", "Powered by Reux prototype"]);
@@ -24,6 +24,7 @@ async function main() {
   await checkWebsiteRoute("/projects/reux/roadmap", ["Roadmap", "Developer Preview Launch", "Business Simulator Wedge", "PLOS MVP Backend"]);
   await checkWebsiteRoute("/blog/plos-mvp-foundation-live", ["PLOS MVP Foundation Is Live", "LifePilot was the working codename"]);
   await checkWebsiteRoute("/privacy", ["We do not connect to Gmail", "public PLOS materials describe an MVP foundation"]);
+  await checkReuxStatusRoute();
   await checkApiHealth();
   await checkReuxCatalog();
   await checkOperationsRun();
@@ -72,6 +73,17 @@ async function checkApiHealth() {
     name: "api health",
     ok: health.ok === true && productSimulations.includes("operations_decision"),
     detail: `${productSimulations.length} executable models${apiVersion ? `, api ${apiVersion}` : ", missing api version"}`,
+  });
+}
+
+async function checkReuxStatusRoute() {
+  const status = await fetchJson(`${siteUrl}/api/status/reux`);
+  const models = Array.isArray(status.models) ? status.models.map((model) => model.name) : [];
+
+  checks.push({
+    name: "website reux status route",
+    ok: status.ok === true && models.includes("operations_decision") && models.includes("personal_finance"),
+    detail: models.length > 0 ? `${models.length} model(s)` : status.error ?? "missing models",
   });
 }
 

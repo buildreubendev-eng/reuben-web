@@ -77,7 +77,7 @@ npm run check:production
 Then manually confirm:
 
 - `/simulator` shows `Live Connected`, not `Local Mock`.
-- `/status` clearly shows Reux as prototype complete, Business Simulator as the live sellable wedge, and PLOS as the MVP foundation.
+- `/status` clearly shows Reux as prototype complete, Business Simulator as the live sellable wedge, PLOS as the MVP foundation, and the live system check.
 - `/simulator/new` loads all four templates.
 - A guided demo can run without login, admin token, or private data.
 - The result page shows recommendation, forecast chart, scenario comparison, Reux transparency, and the Founder Pilot request form.
@@ -105,6 +105,7 @@ Then manually confirm:
 
 - Website routes render and contain expected demo CTAs.
 - The `/status`, `/projects/plos`, `/blog/plos-mvp-foundation-live`, and `/privacy` pages preserve the current PLOS MVP positioning and privacy posture.
+- The `/status` live system check can reach the configured Reux backend and model catalog in production.
 - The Railway API health endpoint responds.
 - Reux simulation catalog includes executable models.
 - `operations_decision` can run through the Reux API.

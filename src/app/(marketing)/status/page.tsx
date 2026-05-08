@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 import EcosystemStatusStrip from "@/components/marketing/EcosystemStatusStrip";
+import LiveSystemStatus from "@/components/marketing/LiveSystemStatus";
 
 export const metadata: Metadata = {
   title: "Reuben Status | Reux, Business Simulator, and PLOS",
@@ -153,6 +154,8 @@ export default function StatusPage() {
       </section>
 
       <EcosystemStatusStrip className="mt-16" />
+
+      <LiveSystemStatus />
 
       <section className="container mx-auto mt-20 px-4 md:px-8">
         <div className="grid gap-6">
