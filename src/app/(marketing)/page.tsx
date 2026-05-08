@@ -81,6 +81,9 @@ export default function Home() {
             <AnimatedButton href="/founder-pilot" variant="secondary">
               Request Founder Pilot
             </AnimatedButton>
+            <AnimatedButton href="/status" variant="secondary">
+              View Status
+            </AnimatedButton>
           </motion.div>
         </motion.div>
 

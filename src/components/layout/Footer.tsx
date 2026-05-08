@@ -58,6 +58,11 @@ export default function Footer() {
                   All Projects
                 </Link>
               </li>
+              <li>
+                <Link href="/status" className="text-gray-400 hover:text-[#00F0FF] transition-colors text-sm">
+                  Ecosystem Status
+                </Link>
+              </li>
             </ul>
           </div>
 

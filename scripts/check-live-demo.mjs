@@ -14,6 +14,7 @@ const checks = [];
 
 async function main() {
   await checkWebsiteRoute("/", ["Try the Business Simulator", "Reux", "Business Simulator", "PLOS"]);
+  await checkWebsiteRoute("/status", ["Ecosystem status", "Prototype complete", "Live sellable wedge", "MVP foundation"]);
   await checkWebsiteRoute("/projects/reux", ["Reux Programming Language", "Try the Business Simulator", "Developer Preview", "Roadmap"]);
   await checkWebsiteRoute("/projects/plos", ["PLOS", "MVP foundation live", "Approval first", "Prisma persistence"]);
   await checkWebsiteRoute("/simulator", ["Business Simulator", "Powered by Reux prototype"]);
