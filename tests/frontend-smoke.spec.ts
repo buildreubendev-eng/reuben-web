@@ -7,6 +7,7 @@ const publicPages = [
   { path: "/projects/reux/roadmap", heading: "Reux Roadmap" },
   { path: "/projects/reux/demo", heading: /Try the Reux commerce console/i },
   { path: "/docs", heading: "Getting Started with Reux" },
+  { path: "/status", heading: /What is live, what is MVP/i },
   { path: "/founder-pilot", heading: /Turn one spreadsheet decision/i },
   { path: "/founder-pilot/outreach", heading: /First-customer outreach/i },
   { path: "/founder-pilot/demo-script", heading: /Five-minute Founder Pilot walkthrough/i },
@@ -32,5 +33,41 @@ test.describe("public frontend smoke", () => {
     await expect(page.getByRole("heading", { name: "The hosted console is being refreshed." })).toBeVisible();
     await expect(page.getByRole("link", { name: "Try Business Simulator" }).first()).toBeVisible();
     await expect(page.getByRole("link", { name: "Developer Preview" }).first()).toBeVisible();
+  });
+
+  test("status page hydrates the live Reux health panel", async ({ page }) => {
+    await page.route("**/api/status/reux", async (route) => {
+      await route.fulfill({
+        json: {
+          ok: true,
+          configured: true,
+          url: "https://reux-pilot-demo-production.up.railway.app",
+          apiVersion: "2026-05-02",
+          productSimulations: ["operations_decision", "personal_finance"],
+          checkedAt: new Date().toISOString(),
+          models: [
+            {
+              name: "operations_decision",
+              dimensions: { domain: "operations" },
+              forecast: { periods: 12, unit: "week" },
+              metricCount: 8,
+            },
+            {
+              name: "personal_finance",
+              dimensions: { domain: "finance" },
+              forecast: { periods: 24, unit: "month" },
+              metricCount: 6,
+            },
+          ],
+        },
+      });
+    });
+
+    await page.goto("/status");
+
+    await expect(page.getByText("Live Reux backend connected")).toBeVisible();
+    await expect(page.getByText("Operations Decision")).toBeVisible();
+    await expect(page.getByText("Personal Finance")).toBeVisible();
+    await expect(page.getByText("2").first()).toBeVisible();
   });
 });
