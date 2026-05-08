@@ -25,7 +25,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-gray-400 max-w-sm text-sm leading-relaxed">
-              Building data-aware tools for modern computing. Reux is our prototype backend language for simulations, transactions, and decision logic.
+              Building Reux, Business Simulator, and PLOS: the engine, the operational planning wedge, and the personal life-admin MVP.
             </p>
           </div>
 
@@ -91,6 +91,16 @@ export default function Footer() {
               <li>
                 <Link href="/about" className="text-gray-400 hover:text-[#00F0FF] transition-colors text-sm">
                   About
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-gray-400 hover:text-[#00F0FF] transition-colors text-sm">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-gray-400 hover:text-[#00F0FF] transition-colors text-sm">
+                  Contact
                 </Link>
               </li>
             </ul>

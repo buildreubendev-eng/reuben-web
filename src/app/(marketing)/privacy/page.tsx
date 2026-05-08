@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Reuben",
-  description: "Privacy policy for Reuben Inc. and the Reux ecosystem.",
+  description: "Privacy policy for Reuben Inc., Reux, Business Simulator, and PLOS.",
 };
 
 export default function PrivacyPage() {
@@ -16,7 +16,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-semibold text-white mb-3">Overview</h2>
             <p>
-              Reuben Inc. (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates the reuben.inc website and the Business Simulator demo. This page describes what data we collect and how we use it.
+              Reuben Inc. (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates the reuben.inc website, Business Simulator demo, and public PLOS product information. This page describes what data we collect and how we use it.
             </p>
           </section>
 
@@ -24,8 +24,9 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-semibold text-white mb-3">What We Collect</h2>
             <ul className="list-disc pl-5 space-y-2 text-gray-400">
               <li><strong className="text-gray-300">Simulator usage:</strong> Scenario inputs you submit to the Business Simulator are processed to generate results. This data is not stored permanently and is used only for the demo session.</li>
+              <li><strong className="text-gray-300">PLOS interest and contact:</strong> If you contact us about PLOS, we receive the name, email, topic, and message you submit through the contact form or email fallback.</li>
               <li><strong className="text-gray-300">Analytics:</strong> We may collect anonymous page visit data (e.g., page views, referrer) to understand how visitors use the site. No personally identifiable information is collected through analytics.</li>
-              <li><strong className="text-gray-300">Contact emails:</strong> If you email us directly (e.g., via the PLOS interest link), we receive your email address and message content.</li>
+              <li><strong className="text-gray-300">Contact emails:</strong> If you email us directly, we receive your email address and message content.</li>
             </ul>
           </section>
 
@@ -33,6 +34,8 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-semibold text-white mb-3">What We Do Not Collect</h2>
             <ul className="list-disc pl-5 space-y-2 text-gray-400">
               <li>We do not require accounts or passwords.</li>
+              <li>We do not connect to Gmail, calendars, bank accounts, health records, or personal documents from this website.</li>
+              <li>The current public PLOS materials describe an MVP foundation; they do not process real personal inbox, banking, calendar, or health data here.</li>
               <li>We do not use tracking cookies for advertising.</li>
               <li>We do not sell or share personal data with third parties.</li>
             </ul>

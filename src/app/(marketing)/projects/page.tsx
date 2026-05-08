@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import ProjectCard from "@/components/ui/ProjectCard";
+import EcosystemStatusStrip from "@/components/marketing/EcosystemStatusStrip";
 
 const liveProjects = [
   {
@@ -76,6 +77,8 @@ export default function ProjectsPage() {
             The Reuben ecosystem spans a prototype-complete backend language, a live sellable simulator wedge, and PLOS, the new personal life admin MVP.
           </p>
         </motion.div>
+
+        <EcosystemStatusStrip className="-mx-4 mb-16 rounded-none border-white/10 bg-transparent md:-mx-8" />
 
         {/* Live */}
         <section className="mb-16">
