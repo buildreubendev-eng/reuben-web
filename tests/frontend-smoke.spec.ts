@@ -4,6 +4,7 @@ const publicPages = [
   { path: "/", heading: /Simulate Before/i },
   { path: "/projects", heading: "Our Work" },
   { path: "/projects/reux", heading: "Reux Programming Language" },
+  { path: "/projects/plos", heading: "PLOS" },
   { path: "/projects/reux/roadmap", heading: "Reux Roadmap" },
   { path: "/projects/reux/demo", heading: /Try the Reux commerce console/i },
   { path: "/docs", heading: "Getting Started with Reux" },
@@ -48,6 +49,14 @@ test.describe("public frontend smoke", () => {
     await expect(latest.getByText("Prototype complete", { exact: true })).toBeVisible();
     await expect(latest.getByText("MVP foundation", { exact: true })).toBeVisible();
     await expect(latest.getByText("Crawler-ready sitemap and robots routes")).toBeVisible();
+  });
+
+  test("PLOS page is ready for a deployed app URL", async ({ page }) => {
+    await page.goto("/projects/plos");
+
+    await expect(page.getByText("JSON demo mode plus durable Prisma-backed persistence")).toBeVisible();
+    await expect(page.getByText("Deploy the PLOS app, set its public URL in Reuben")).toBeVisible();
+    await expect(page.getByRole("link", { name: "View MVP Repo" })).toBeVisible();
   });
 
   test("status page hydrates the live Reux health panel", async ({ page }) => {

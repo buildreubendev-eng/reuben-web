@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Activity, ArrowUpRight, CheckCircle2, Layers3, ShieldCheck, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { plosAppUrl } from "@/lib/productLinks";
 
 type ShipTone = "emerald" | "cyan" | "violet";
 
@@ -13,6 +14,7 @@ interface ShipItem {
   href: string;
   cta: string;
   tone: ShipTone;
+  external?: boolean;
 }
 
 const toneClasses: Record<ShipTone, string> = {
@@ -52,11 +54,12 @@ const shippedItems: ShipItem[] = [
     product: "PLOS",
     status: "MVP foundation",
     title: "The LifePilot codename is now positioned as PLOS.",
-    description: "The public story frames PLOS as the Personal Life Operating System with life-admin inbox, task, approval, document, and privacy surfaces.",
-    proof: ["Backend routes", "Gemini UI handoff", "Privacy approvals"],
-    href: "/projects/plos",
-    cta: "Review PLOS",
+    description: "PLOS is the Personal Life Operating System with life-admin inbox, task, approval, document, privacy, and durable backend surfaces.",
+    proof: ["Durable backend", "Gemini UI handoff", "Privacy approvals"],
+    href: plosAppUrl ?? "/projects/plos",
+    cta: plosAppUrl ? "Open PLOS MVP" : "Review PLOS",
     tone: "violet",
+    external: Boolean(plosAppUrl),
   },
 ];
 
@@ -98,6 +101,8 @@ export default function LatestShippingPanel() {
             <Link
               key={item.product}
               href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noreferrer" : undefined}
               className="group flex min-h-[340px] flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-white/20 hover:bg-white/[0.05]"
             >
               <div className="mb-5 flex items-center justify-between gap-4">

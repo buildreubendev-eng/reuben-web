@@ -7,6 +7,7 @@ import AnimatedButton from "@/components/ui/AnimatedButton";
 import ProjectCard from "@/components/ui/ProjectCard";
 import EcosystemStatusStrip from "@/components/marketing/EcosystemStatusStrip";
 import LatestShippingPanel from "@/components/marketing/LatestShippingPanel";
+import { plosAppUrl } from "@/lib/productLinks";
 
 const HeroScene = dynamic(() => import("@/components/3d/HeroScene"), {
   ssr: false,
@@ -186,15 +187,18 @@ export default function Home() {
                 label: "Map",
                 title: "Review PLOS",
                 description: "See the personal life admin MVP that turns inbox noise into tasks, recommendations, approvals, and documents.",
-                href: "/projects/plos",
-                cta: "Open PLOS",
+                href: plosAppUrl ?? "/projects/plos",
+                cta: plosAppUrl ? "Open PLOS MVP" : "Open PLOS",
                 color: "from-amber-500/20 to-amber-500/5",
                 border: "hover:border-amber-500/30",
+                external: Boolean(plosAppUrl),
               },
             ].map((path) => (
               <a
                 key={path.title}
                 href={path.href}
+                target={path.external ? "_blank" : undefined}
+                rel={path.external ? "noreferrer" : undefined}
                 className={`group glass-card p-6 rounded-2xl border border-white/5 ${path.border} transition-all duration-300 hover:-translate-y-1 block`}
               >
                 <div className="mb-4 inline-flex rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#00F0FF]">{path.label}</div>

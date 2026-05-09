@@ -18,6 +18,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | Variable | Required | Description |
 |---|---|---|
 | `NEXT_PUBLIC_REUX_DEMO_URL` | For live demo | URL of the hosted Reux pilot demo service. When unset, the simulator falls back to the local mock engine. |
+| `NEXT_PUBLIC_PLOS_APP_URL` | For live PLOS app | URL of the deployed PLOS/LifePilot app. When unset, Reuben keeps PLOS CTAs on the public project/repo surfaces. |
 | `CONTACT_WEBHOOK_URL` | For real intake | Optional webhook URL for pilot/contact leads. Use a Zapier, Make, Slack-compatible, or custom webhook endpoint. |
 | `RESEND_API_KEY` | For email intake | Optional Resend API key for contact email delivery. |
 | `CONTACT_TO_EMAIL` | For email intake | Destination inbox for contact leads when using Resend. |
@@ -28,6 +29,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ```env
 NEXT_PUBLIC_REUX_DEMO_URL=https://reux-pilot-demo-production.up.railway.app
+NEXT_PUBLIC_PLOS_APP_URL=https://your-plos-app.vercel.app
 NEXT_PUBLIC_CONTACT_EMAIL=buildreuben.dev@gmail.com
 ```
 
@@ -80,8 +82,9 @@ PLOS is now treated as an MVP foundation, not a placeholder future product. The 
 
 - Life-admin dashboard, AI Inbox simulation, generated tasks, weekly briefing, documents, approvals, integrations, ingest, audit, and settings surfaces.
 - Backend routes for items, tasks, recommendations, dashboard, briefing, documents, settings, integrations, audit, approvals, ingestion, and reset.
+- Durable backend mode through Prisma plus JSON-backed demo mode for local UI work.
 - Privacy-first behavior: no real Gmail, Calendar, bank, or health integrations yet, and sensitive actions require explicit approval.
-- Local JSON persistence for the MVP plus a Prisma SQLite schema for the next repository implementation milestone.
+- Set `NEXT_PUBLIC_PLOS_APP_URL` after deploying the PLOS app so Reuben opens the real MVP from homepage and project CTAs.
 
 The public website should describe LifePilot only as the old working codename. The user-facing product name is PLOS.
 

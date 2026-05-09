@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 import Link from "next/link";
+import { plosAppUrl, plosRepoUrl } from "@/lib/productLinks";
 
 const mvpFeatures = [
   {
@@ -47,10 +48,10 @@ const mvpFeatures = [
 
 const backendCapabilities = [
   "REST API for items, tasks, dashboard summary, weekly briefing, recommendations, documents, settings, integrations, audit, approvals, ingest, and reset.",
-  "Repository and service boundary ready for future Gmail, Google Calendar, Plaid, health, and persistence adapters.",
+  "Repository and service boundary ready for future Gmail, Google Calendar, Plaid, health, and connector adapters.",
   "Raw message ingestion that normalizes provider messages into life-admin items and tracks ingestion run history.",
-  "Local MVP state persisted in an ignored JSON store, with Prisma SQLite schema prepared for the next repository milestone.",
-  "Vitest coverage for prioritization behavior plus typecheck, lint, test, and build verification.",
+  "JSON demo mode plus durable Prisma-backed persistence behind a repository switch.",
+  "Health endpoint, SQLite migration, and Vitest coverage for prioritization, API behavior, service workflows, and Prisma persistence.",
 ];
 
 const dashboardSections = [
@@ -84,6 +85,8 @@ const lifecycle = [
 ];
 
 export default function PlosPage() {
+  const primaryHref = plosAppUrl ?? plosRepoUrl;
+
   return (
     <div className="min-h-screen bg-[#0A0A0A] pt-32 pb-24">
       <div className="container mx-auto px-4 md:px-8">
@@ -115,8 +118,8 @@ export default function PlosPage() {
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <AnimatedButton href="https://github.com/buildreubendev-eng/LifePilot" variant="primary" external>
-              View MVP Repo
+            <AnimatedButton href={primaryHref} variant="primary" external={Boolean(plosAppUrl)}>
+              {plosAppUrl ? "Open PLOS MVP" : "View MVP Repo"}
             </AnimatedButton>
             <AnimatedButton href="/contact?topic=plos" variant="secondary">
               Discuss PLOS
@@ -299,12 +302,12 @@ export default function PlosPage() {
           <Archive className="mx-auto mb-5 h-10 w-10 text-[#00F0FF]" />
           <h2 className="mb-4 text-3xl font-bold text-white">Next milestone</h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-gray-400">
-            Move from the JSON-backed MVP repository toward Prisma persistence, then connect the Gemini-designed UI
-            to the backend contracts already in place.
+            Deploy the PLOS app, set its public URL in Reuben, then keep refining the Gemini-designed UI against the
+            durable backend contracts already in place.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <AnimatedButton href="https://github.com/buildreubendev-eng/LifePilot" variant="primary" external>
-              Open GitHub
+            <AnimatedButton href={primaryHref} variant="primary" external={Boolean(plosAppUrl)}>
+              {plosAppUrl ? "Open PLOS MVP" : "Open GitHub"}
             </AnimatedButton>
             <AnimatedButton href="/projects" variant="secondary">
               Back to Projects
