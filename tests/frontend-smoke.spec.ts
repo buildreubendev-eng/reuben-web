@@ -35,6 +35,20 @@ test.describe("public frontend smoke", () => {
     await expect(page.getByRole("link", { name: "Developer Preview" }).first()).toBeVisible();
   });
 
+  test("homepage exposes the current ecosystem shipping proof", async ({ page }) => {
+    await page.goto("/");
+
+    const latest = page.locator("section").filter({
+      has: page.getByRole("heading", { name: "What is real in the Reuben stack right now" }),
+    });
+
+    await expect(latest).toBeVisible();
+    await expect(latest.getByText("Live product wedge", { exact: true })).toBeVisible();
+    await expect(latest.getByText("Prototype complete", { exact: true })).toBeVisible();
+    await expect(latest.getByText("MVP foundation", { exact: true })).toBeVisible();
+    await expect(latest.getByText("Crawler-ready sitemap and robots routes")).toBeVisible();
+  });
+
   test("status page hydrates the live Reux health panel", async ({ page }) => {
     await page.route("**/api/status/reux", async (route) => {
       await route.fulfill({

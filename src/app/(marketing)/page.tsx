@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 import ProjectCard from "@/components/ui/ProjectCard";
 import EcosystemStatusStrip from "@/components/marketing/EcosystemStatusStrip";
+import LatestShippingPanel from "@/components/marketing/LatestShippingPanel";
 
 const HeroScene = dynamic(() => import("@/components/3d/HeroScene"), {
   ssr: false,
@@ -100,6 +101,7 @@ export default function Home() {
       </section>
 
       <EcosystemStatusStrip />
+      <LatestShippingPanel />
 
       {/* Featured Project Section */}
       <section className="py-32 relative z-20 bg-[#0A0A0A]/15 backdrop-blur-xl">
