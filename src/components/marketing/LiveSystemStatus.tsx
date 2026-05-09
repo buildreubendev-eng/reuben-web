@@ -38,6 +38,18 @@ interface ReuxStatusResponse {
   url?: string;
   apiVersion?: string;
   productSimulations?: string[];
+  missingExpectedModels?: string[];
+  latencyMs?: {
+    total?: number;
+    health?: number;
+    catalog?: number;
+  };
+  checks?: Array<{
+    name: string;
+    ok: boolean;
+    latencyMs?: number;
+    detail?: string;
+  }>;
   models: ReuxStatusModel[];
   checkedAt: string;
   error?: string;
@@ -104,6 +116,7 @@ export default function LiveSystemStatus() {
   const isLive = status.response?.ok === true;
   const isConfigured = status.response?.configured === true;
   const models = status.response?.models ?? [];
+  const checks = status.response?.checks ?? [];
 
   return (
     <section className="container mx-auto mt-16 px-4 md:px-8">
@@ -161,8 +174,27 @@ export default function LiveSystemStatus() {
             <div className="grid gap-3 sm:grid-cols-3">
               <Metric label="Backend" value={isLoading ? "Checking" : isLive ? "Live" : isConfigured ? "Degraded" : "Mock"} />
               <Metric label="Models" value={isLoading ? "..." : String(models.length)} />
-              <Metric label="Checked" value={formatCheckedAt(status.checkedAt)} />
+              <Metric label="Latency" value={formatLatency(status.response?.latencyMs?.total)} />
             </div>
+            <p className="mt-3 text-xs text-gray-500">Last checked {formatCheckedAt(status.checkedAt)}</p>
+
+            {checks.length > 0 && (
+              <div className="mt-5 grid gap-2">
+                {checks.map((check) => (
+                  <div key={check.name} className="flex items-center justify-between gap-4 rounded-lg border border-white/10 bg-black/20 px-3 py-2">
+                    <div className="flex items-center gap-2">
+                      {check.ok ? (
+                        <CheckCircle2 className="h-4 w-4 text-emerald-300" />
+                      ) : (
+                        <AlertTriangle className="h-4 w-4 text-amber-300" />
+                      )}
+                      <span className="text-xs font-semibold text-gray-300">{check.name}</span>
+                    </div>
+                    <span className="text-xs text-gray-500">{check.detail ?? formatLatency(check.latencyMs)}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="p-6 md:p-8">
@@ -259,13 +291,19 @@ function formatCheckedAt(value?: string) {
   if (!value) return "Pending";
 
   try {
-    return new Intl.DateTimeFormat("en", {
+    return new Intl.DateTimeFormat("en-US", {
       hour: "numeric",
       minute: "2-digit",
     }).format(new Date(value));
   } catch {
     return "Checked";
   }
+}
+
+function formatLatency(value?: number) {
+  if (typeof value !== "number" || !Number.isFinite(value)) return "n/a";
+  if (value < 1000) return `${value}ms`;
+  return `${(value / 1000).toFixed(1)}s`;
 }
 
 function formatModelName(value: string) {

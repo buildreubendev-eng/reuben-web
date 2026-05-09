@@ -1,6 +1,13 @@
 import { NextResponse } from "next/server";
 
 const DEFAULT_REUX_API_URL = "https://reux-pilot-demo-production.up.railway.app";
+const EXPECTED_MODELS = [
+  "operations_decision",
+  "personal_finance",
+  "habit_consistency",
+  "workforce_change",
+  "operations_throughput",
+];
 
 interface ReuxHealthResponse {
   ok?: boolean;
@@ -23,22 +30,53 @@ interface ReuxCatalogResponse {
 
 export async function GET() {
   const apiUrl = normalizeUrl(process.env.NEXT_PUBLIC_REUX_DEMO_URL ?? DEFAULT_REUX_API_URL);
+  const startedAt = performance.now();
 
   try {
-    const [health, catalog] = await Promise.all([
-      fetchJson<ReuxHealthResponse>(`${apiUrl}/api/health`),
-      fetchJson<ReuxCatalogResponse>(`${apiUrl}/api/reux/simulations`),
+    const [healthResult, catalogResult] = await Promise.all([
+      fetchJsonWithTiming<ReuxHealthResponse>(`${apiUrl}/api/health`),
+      fetchJsonWithTiming<ReuxCatalogResponse>(`${apiUrl}/api/reux/simulations`),
     ]);
 
+    const health = healthResult.body;
+    const catalog = catalogResult.body;
     const simulations = Array.isArray(catalog.simulations) ? catalog.simulations : [];
     const productSimulations = Array.isArray(health.productSimulations) ? health.productSimulations : [];
+    const modelNames = simulations.map((simulation) => simulation.name);
+    const missingExpectedModels = EXPECTED_MODELS.filter((model) => !modelNames.includes(model));
+    const ok = health.ok === true && missingExpectedModels.length === 0;
 
     return NextResponse.json({
-      ok: health.ok === true,
+      ok,
       configured: true,
       url: apiUrl,
       apiVersion: health.apiVersion,
       productSimulations,
+      missingExpectedModels,
+      latencyMs: {
+        total: Math.round(performance.now() - startedAt),
+        health: healthResult.latencyMs,
+        catalog: catalogResult.latencyMs,
+      },
+      checks: [
+        {
+          name: "Backend health",
+          ok: health.ok === true,
+          latencyMs: healthResult.latencyMs,
+        },
+        {
+          name: "Model catalog",
+          ok: simulations.length > 0,
+          latencyMs: catalogResult.latencyMs,
+        },
+        {
+          name: "Expected models",
+          ok: missingExpectedModels.length === 0,
+          detail: missingExpectedModels.length === 0
+            ? `${EXPECTED_MODELS.length} expected models present`
+            : `Missing ${missingExpectedModels.join(", ")}`,
+        },
+      ],
       models: simulations.map((simulation) => ({
         name: simulation.name,
         dimensions: simulation.dimensions ?? {},
@@ -53,6 +91,16 @@ export async function GET() {
         ok: false,
         configured: true,
         url: apiUrl,
+        latencyMs: {
+          total: Math.round(performance.now() - startedAt),
+        },
+        checks: [
+          {
+            name: "Backend health",
+            ok: false,
+            detail: error instanceof Error ? error.message : "Reux status check failed.",
+          },
+        ],
         models: [],
         checkedAt: new Date().toISOString(),
         error: error instanceof Error ? error.message : "Reux status check failed.",
@@ -62,18 +110,23 @@ export async function GET() {
   }
 }
 
-async function fetchJson<T>(url: string): Promise<T> {
+async function fetchJsonWithTiming<T>(url: string): Promise<{ body: T; latencyMs: number }> {
+  const startedAt = performance.now();
   const response = await fetch(url, {
     headers: { accept: "application/json" },
     next: { revalidate: 30 },
   });
+  const latencyMs = Math.round(performance.now() - startedAt);
 
   if (!response.ok) {
     const detail = await response.text().catch(() => "");
     throw new Error(`${url} returned ${response.status}${detail ? `: ${detail.slice(0, 160)}` : ""}`);
   }
 
-  return response.json() as Promise<T>;
+  return {
+    body: await response.json() as T,
+    latencyMs,
+  };
 }
 
 function normalizeUrl(value: string) {

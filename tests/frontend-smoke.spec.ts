@@ -44,6 +44,12 @@ test.describe("public frontend smoke", () => {
           url: "https://reux-pilot-demo-production.up.railway.app",
           apiVersion: "2026-05-02",
           productSimulations: ["operations_decision", "personal_finance"],
+          latencyMs: { total: 142, health: 52, catalog: 90 },
+          checks: [
+            { name: "Backend health", ok: true, latencyMs: 52 },
+            { name: "Model catalog", ok: true, latencyMs: 90 },
+            { name: "Expected models", ok: true, detail: "5 expected models present" },
+          ],
           checkedAt: new Date().toISOString(),
           models: [
             {
@@ -68,6 +74,9 @@ test.describe("public frontend smoke", () => {
     await expect(page.getByText("Live Reux backend connected")).toBeVisible();
     await expect(page.getByText("Operations Decision")).toBeVisible();
     await expect(page.getByText("Personal Finance")).toBeVisible();
-    await expect(page.getByText("2").first()).toBeVisible();
+    await expect(page.getByText("Backend health")).toBeVisible();
+    await expect(page.getByText("Model catalog")).toBeVisible();
+    await expect(page.getByText("5 expected models present")).toBeVisible();
+    await expect(page.getByText("142ms")).toBeVisible();
   });
 });

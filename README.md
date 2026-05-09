@@ -54,6 +54,14 @@ Check these before each deployment:
 | `/docs` | Developer preview | Onboarding steps, syntax examples, editor support, run-from-source |
 | `/about` | About Reuben | Vision, ecosystem diagram, team |
 
+## Public Discovery
+
+The app publishes crawler-friendly metadata from code:
+
+- `/sitemap.xml` lists the public Reuben, Reux, PLOS, Business Simulator, docs, founder pilot, and blog routes.
+- `/robots.txt` allows public crawling, points to the sitemap, and keeps the internal operator route out of crawler paths.
+- `/api/status/reux` checks the Railway Reux backend health endpoint and model catalog, returns latency by check, and flags missing expected executable models.
+
 ## Developer Preview
 
 The `/docs` page provides a structured onboarding path for technical users who want to try Reux locally:
