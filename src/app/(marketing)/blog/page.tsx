@@ -7,6 +7,13 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "ecosystem-status-and-shipping-proof-live",
+    title: "Reuben Ecosystem Status and Shipping Proof Are Live",
+    date: "2026-05-08",
+    excerpt: "The public website now makes the current state of Reux, PLOS, and Business Simulator easier to verify with homepage proof, live backend telemetry, and crawler-ready discovery routes.",
+    category: "Changelog",
+  },
+  {
     slug: "plos-mvp-foundation-live",
     title: "PLOS MVP Foundation Is Live",
     date: "2026-05-07",

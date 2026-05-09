@@ -19,6 +19,7 @@ const routes = [
   { path: "/founder-pilot/intake", priority: 0.5, changeFrequency: "monthly" },
   { path: "/founder-pilot/delivery-template", priority: 0.5, changeFrequency: "monthly" },
   { path: "/blog", priority: 0.7, changeFrequency: "weekly" },
+  { path: "/blog/ecosystem-status-and-shipping-proof-live", priority: 0.8, changeFrequency: "monthly" },
   { path: "/blog/plos-mvp-foundation-live", priority: 0.7, changeFrequency: "monthly" },
   { path: "/blog/reux-prototype-complete", priority: 0.6, changeFrequency: "monthly" },
   { path: "/blog/why-we-are-building-reux", priority: 0.5, changeFrequency: "monthly" },

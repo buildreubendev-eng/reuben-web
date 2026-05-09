@@ -3,6 +3,30 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
 const POSTS: Record<string, { title: string; date: string; category: string; content: React.ReactNode }> = {
+  "ecosystem-status-and-shipping-proof-live": {
+    title: "Reuben Ecosystem Status and Shipping Proof Are Live",
+    date: "2026-05-08",
+    category: "Changelog",
+    content: (
+      <>
+        <p>
+          The Reuben website now shows the current product stack as working proof instead of roadmap language. The homepage points visitors directly to the live Business Simulator, the verified Reux backend, and the PLOS MVP foundation.
+        </p>
+        <p>
+          Business Simulator remains the public wedge: visitors can run a scenario, inspect Reux-backed recommendations, compare results, save a run, and submit a Founder Pilot intake from the same flow.
+        </p>
+        <p>
+          Reux now has a live status surface on the website. The status route checks the Railway backend health endpoint, verifies the executable model catalog, confirms the expected model set, and reports latency for the health and catalog checks.
+        </p>
+        <p>
+          PLOS is presented as the user-facing Personal Life Operating System, with LifePilot kept as the original codename. The public page now emphasizes the MVP foundation: life-admin items, generated tasks, recommendations, approvals, documents, settings, audit, ingestion, and privacy-first integration boundaries.
+        </p>
+        <p>
+          The site also publishes crawler-ready discovery routes through <code>/sitemap.xml</code> and <code>/robots.txt</code>, so Reux, PLOS, Business Simulator, docs, status, and changelog pages are easier to index and verify.
+        </p>
+      </>
+    ),
+  },
   "plos-mvp-foundation-live": {
     title: "PLOS MVP Foundation Is Live",
     date: "2026-05-07",

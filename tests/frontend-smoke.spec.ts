@@ -8,6 +8,7 @@ const publicPages = [
   { path: "/projects/reux/demo", heading: /Try the Reux commerce console/i },
   { path: "/docs", heading: "Getting Started with Reux" },
   { path: "/status", heading: /What is live, what is MVP/i },
+  { path: "/blog/ecosystem-status-and-shipping-proof-live", heading: "Reuben Ecosystem Status and Shipping Proof Are Live" },
   { path: "/founder-pilot", heading: /Turn one spreadsheet decision/i },
   { path: "/founder-pilot/outreach", heading: /First-customer outreach/i },
   { path: "/founder-pilot/demo-script", heading: /Five-minute Founder Pilot walkthrough/i },
