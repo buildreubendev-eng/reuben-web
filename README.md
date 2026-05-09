@@ -172,6 +172,7 @@ Visitor-facing behavior:
 
 Full operational checklist: [Business Simulator runbook](docs/business-simulator-runbook.md).
 Lead handling checklist: [Founder Pilot Delivery Playbook](docs/founder-pilot-delivery.md).
+Frontend AI work split: [Opus + Gemini frontend roadmap](docs/frontend-ai-roadmap.md).
 
 ## Operator Pilot Requests
 
